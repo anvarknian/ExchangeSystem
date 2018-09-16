@@ -10,8 +10,8 @@ object Main extends App with LazyLogging {
   val orders = ResourceManager.parseOrders(s"${baseDir}orders.txt", clients)
   if (clients.isEmpty || orders.isEmpty) println("Input files are empty.")
   var exchangeEngine: Exchange = null
-  println("Type a number:" +
-    "\nAnwar Knyane - alvinaspowa@gmail.com" +
+  println("-- \t ExchangeProgram \t -- \t Anwar Knyane \t - \t alvinaspowa@gmail.com" +
+    "\nType a number:" +
     "\n1 - Match only when both stock price and volume match (Simple Exchange)." +
     "\n2 - Check price and volume balances for validity before processing orders (Advanced Exchange)." +
     "\n3 - Information about project." +

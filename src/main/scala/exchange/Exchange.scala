@@ -8,7 +8,7 @@ import stocks.Stock
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
-abstract class ExchangeEngine {
+abstract class Exchange {
 
   def clients: ArrayBuffer[Client]
   def start()

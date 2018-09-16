@@ -1,7 +1,7 @@
 import java.util.Scanner
 
 import com.typesafe.scalalogging.LazyLogging
-import exchange.{ComplexExchangeEngine, ExchangeEngine, SimpleExchangeEngine}
+import exchange.{ComplexExchange, Exchange, SimpleExchange}
 import resourceManager.ResourceManager
 
 object Main extends App with LazyLogging {
@@ -9,7 +9,7 @@ object Main extends App with LazyLogging {
   val clients = ResourceManager.parseClients(s"${baseDir}clients.txt")
   val orders = ResourceManager.parseOrders(s"${baseDir}orders.txt", clients)
   if (clients.isEmpty || orders.isEmpty) println("Input files are empty.")
-  var exchangeEngine: ExchangeEngine = null
+  var exchangeEngine: Exchange = null
   println("Type a number:" +
     "\nAnwar Knyane - alvinaspowa@gmail.com" +
     "\n1 - Match only when both stock price and volume match (Simple Exchange)." +
@@ -21,8 +21,8 @@ object Main extends App with LazyLogging {
   val settingChoice: Int = new Scanner(System.in).nextInt()
 
   settingChoice match {
-    case 1 => logger.info(s"Simple Exchange selected"); exchangeEngine = SimpleExchangeEngine(clients)
-    case 2 => logger.info(s"Advanced Exchange selected"); exchangeEngine = ComplexExchangeEngine(clients)
+    case 1 => logger.info(s"Simple Exchange selected"); exchangeEngine = SimpleExchange(clients)
+    case 2 => logger.info(s"Advanced Exchange selected"); exchangeEngine = ComplexExchange(clients)
     case 3 => logger.info(s"Information about project"); println("SimpleScalaProject v1 - 2018/09/16 - Anwar Knyane")
     case 4 => logger.info(s"Exiting Program"); System.exit(0)
   }

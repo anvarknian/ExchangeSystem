@@ -1,4 +1,4 @@
-name := "SimpleScalaProject"
+name := "ExchangeSystem"
 
 version := "1.0"
 
